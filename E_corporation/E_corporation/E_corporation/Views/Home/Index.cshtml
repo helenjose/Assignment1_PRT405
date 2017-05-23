@@ -1,0 +1,30 @@
+﻿@model E_corporation.Models.login
+@{
+    ViewBag.Title = "Log in";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<section id="loginForm">
+    @using (Html.BeginForm("Report", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.User_Name)
+                @Html.TextBoxFor(m => m.User_Name)
+                @Html.ValidationMessageFor(m => m.User_Name)
+            </li>
+        </ol>
+        <input type="submit" value="Log in" />
+    </fieldset>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

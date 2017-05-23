@@ -1,0 +1,40 @@
+﻿@model IEnumerable<E_corporation.Models.catalogue>
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Edit</h2
+    <section>
+        @using (Html.BeginForm("Save", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            <table class="Table">
+            @foreach (var item in Model) {
+                <tr>
+                    <td><label>ID</label></td>
+                    <td><input type="text" value="@Html.DisplayFor(modelItem => item.Id)" name="id" readonly=""/></td>
+                </tr>
+                <tr>
+                    <td><label>User Name</label></td>
+                    <td><input type="text" value="@Html.DisplayFor(modelItem => item.Username)" readonly="" /></td>
+                </tr>
+                <tr>
+                    <td><label>Title</label></td>
+                    <td><input type="text" value="@Html.DisplayFor(modelItem => item.Title)" name="title"/></td>
+                </tr>
+                <tr>
+                    <td><label>Length</label></td>
+                    <td><input type="text" value="@Html.DisplayFor(modelItem => item.Length)" name="length" /></td>
+                </tr>
+                <tr>
+                    <td><label>Band</label></td>
+                    <td><input type="text" value="@Html.DisplayFor(modelItem => item.Band)" name="band" /></td>       
+                </tr>
+            }
+                <tr>
+                    <td></td>
+                    <td style="float:right">
+                        <input type="submit" value="Save" />
+                        <a href="/Account/Report/">Back</a></td>
+                </tr>
+            </table>
+        }
+    </section>
